@@ -1,0 +1,62 @@
+﻿
+html {
+    height:100%;
+
+}
+body {
+    height:100%;
+    width :100%;
+    padding:0;
+    margin:0;
+}
+* {
+    margin:0;
+    padding:0;
+}
+.All {
+    position:relative;
+    overflow:hidden;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+}
+
+.head {
+    background-color:#ffd800;
+    height:64px;
+    width:100%;
+}
+
+.smallimg {
+    background-color:#fff;
+    height:70px;
+    width:100%;
+    margin:5px 0;
+    text-align:center;
+}
+    .smallimg ul {
+        height:60px;
+        width:100%;
+        display:flex;
+    }
+        .smallimg ul li {
+            flex:1;
+        }
+            .smallimg ul li img {
+                display:block;
+                margin: 0 auto;
+                height:100%;
+                width:50px;
+                background-color:aquamarine;
+            }
+    .smallimg .active {
+        border:3px solid #ff6a00;
+
+    }
+
+.detalimg {
+       width:100%;
+}
+
+

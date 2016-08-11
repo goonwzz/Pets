@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="index.css">
+	<meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+  
+	<title>Petdc</title>
+    <script type="text/javascript">
+    $(function () {
+         var width = document.body.clientWidth;
+
+         $(".detalimg").css("height",width);
+
+        // body...
+    })
+    function showinfo(){
+      $(".mainDiv").removeClass("show").addClass("hide");
+       $(".petInfo").removeClass("hide").addClass("show");
+    }
+    function showmain(){
+      $(".petInfo").removeClass("show").addClass("hide");
+      $(".mainDiv").removeClass("hide").addClass("show");
+    }
+
+        
+    </script>
+</head>
+<body ng-app="app">
+   <!--主程序页面-->
+    <div class="mainDiv All"  ng-controller="MyCtrl">
+
+        <div class="head" onclick="showinfo()">
+            <img ng-src="{{logo}}">
+            <label  ng-bind="petname"></label>
+        </div>
+        <div class="smallimg">
+        <ul>
+            <!--<li class="smallist"></li>-->
+            <li onclick="clicksmall(this)" ng-repeat="s in imgsmall" ng-click="showdetailimg(s)" ng-class="{'active':$index==2}" class="smallist"><img ng-src="{{s.petimages[0]}}" /></li>
+           
+        </ul>
+        </div>
+
+        <div class="detalimg">
+            <ul class="imgul">
+                <li ng-repeat="s in imgdata track by $index"  style="background-image:url({{s}})" ><!--<img ng-src="{{s}}"--></li>
+            </ul>
+            <ul class="imgpoint">
+                <li ng-repeat="s in imgdata track by $index" ng-class="{'active':$first}"></li>
+            </ul>
+        </div>
+
+        <div class="detailInfo">
+
+                <div class="infoline">
+                    <div class="l icodiv">
+                        <img src="img/smile.png">
+                        <input ng-model="pet.pettype" type="text" disabled>
+                    </div>
+                    <div class="r icodiv">
+                        <img src="img/sex.png">
+                        <input ng-model="pet.petsex" type="text"  disabled>
+                    </div>
+                </div>
+
+                <div class="infoline">
+                    <div class="l icodiv">
+                        <img src="img/bridthday.png">
+                        <input ng-model="pet.bridthday" type="text">
+                    </div>
+                    <div class="r icodiv">
+                        <img src="img/weigth.png">
+                        <input ng-model="pet.weight" type="text">
+                    </div>
+                </div>
+
+                <div class="infoline">
+                    <div class="l icodiv">
+                        <img src="img/location.png">
+                        <input ng-model="pet.petarea" type="text">
+                    </div>
+                    <div class="r icodiv">
+                        <img src="img/name.png">
+                        <input ng-model="pet.petname" type="text">
+                    </div>
+                </div>
+
+                <div class="infoline masterinfo">
+                    <div class="l icodiv">
+                        <img src="img/master.png">
+                        <input ng-model="pet.name" type="text">
+                    </div>
+                    <div class="r icodiv">
+                        <img src="img/phone.png">
+                        <input ng-model="pet.phone" type="text">
+                    </div>
+                </div>
+                <div class="infoline masterinfo">
+                    <div class="icodiv" style="width:100%">
+                        <img src="img/name.png">
+                        <input ng-model="pet.petdemand" style="width:100%" type="text">
+                    </div>
+                </div>
+        
+          
+            <!--<table style="width: 100%">
+              <tr>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.kind">宠物品种</lable>
+                      </td>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.sex">宠物品种</lable>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.bridthday">宠物品种</lable>
+                  </td>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.location">宠物品种</lable>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.weigth">宠物品种</lable>
+                  </td>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.nikename">宠物品种</lable>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.master">宠物品种</lable>
+                  </td>
+                  <td>
+                      <img src="img/123.png" alt=""><lable ng-bind="data.phone">宠物品种</lable>
+                  </td>
+              </tr>
+              </table>-->
+       
+        </div>
+
+    </div>
+    <!--信息录入-->
+    <div class="petInfo All hide" ng-controller="InPutInfo">
+     <div class="head" >
+       <span class="span_btn l" onclick="showmain()">返回</span>
+       <span style="height: 30px;line-height: 30px;">提交您的宠物详情</span>
+       <span class="span_btn r" ng-click="submit()">确定</span>
+     </div>
+     <div>
+     <ul>
+       <li class="myimg" ng-repeat="s in myimgs track by $index" style="background-image:url({{s}})" ></li>
+       <li class="myimg" id="addimg" ng-click="addimg()" ng-if="myimgs.length<=9"></li>
+     </ul>
+ 
+     <div class="inputinfo">
+       <div class="infoline">
+       <div class="l icodiv"><img src="img/smile.png">
+
+           <select ng-model="pet.pettype" ng-options="m.pettype as m.pettype for m in dogtype">
+              
+           </select>
+       <!--<input ng-model="pet.kind" type="text" disabled>-->
+       </div>
+       <div class="r icodiv"><img src="img/sex.png">
+           <select ng-model="pet.petsex" ng-options="m.sex as m.sex for m in sextype"></select>
+
+       </div>
+       </div>
+
+         <div class="infoline">
+       <div class="l icodiv"><img src="img/bridthday.png">
+       <input ng-model="pet.bridthday" placeholder="2016-06"  type="date">
+       </div>
+       <div class="r icodiv"><img src="img/weigth.png">
+       <input ng-model="pet.weight" type="text">
+       </div>
+       </div>
+
+         <div class="infoline">
+       <div class="l icodiv"><img src="img/location.png">
+       <input ng-model="pet.arear" type="text">
+       </div>
+       <div class="r icodiv"><img src="img/name.png">
+       <input ng-model="pet.petname" type="text">
+       </div>
+       </div>
+
+         <div class="infoline masterinfo">
+       <div class="l icodiv"><img src="img/master.png">
+       <input ng-model="pet.master" type="text">
+       </div>
+       <div class="r icodiv"><img src="img/phone.png">
+       <input ng-model="pet.phone" type="text">
+       </div>
+       </div>
+         <div class="infoline masterinfo">
+       <div class="icodiv " style="width:100%;"><img src="img/name.png">
+       <input ng-model="pet.petdemand" type="text">
+       </div>
+       </div>
+     </div>
+
+    </div>
+        </div>
+
+        <script type="text/javascript" src="MyCtrl.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+        <script src="cordova.js"></script>
+        <script src="Commad.js"></script>
+        <script src="scripts/index.js"></script>
+	
+</body>
+
+</html>

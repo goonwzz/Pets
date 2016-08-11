@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <!--
+        必要时在以下 META 标记中自定义内容安全策略。将 "unsafe-inline" 添加到 default-src 以启动内联 JavaScript。
+      有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+       <title>PetDc</title>
+    <script src="scripts/index.js"></script>
+    <script type="text/javascript">
+    $(function () {
+         var width = document.body.clientWidth;
+
+         $(".detalimg").css("height",width);
+
+        // body...
+    })
+
+    </script>
+
+    <!-- BlankCordovaApp1 引用 -->
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+    <!--主程序页面-->
+    <div class="mainDiv All">
+        <div class="head"></div>
+        <div class="smallimg">
+            <ul>
+                <li>
+                    <img />
+                </li>
+                <li class="active">
+                    <img />
+                </li>
+           
+                <li>
+                    <img />
+                </li>
+                <li>
+                    <img />
+                </li>
+                <li>
+                    <img />
+                </li>
+        
+            </ul>
+        </div>
+
+        <div class="detalimg">
+            <ul class="Img">
+                <li></li>
+            </ul>
+            <ul class="imgpoint">
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="detailInfo">
+            <table>
+                <tr>
+                    <td>
+                      <img /><label></label>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <!--信息录入-->
+    <div class="petInfo All">
+
+    </div>
+
+    <!-- Cordova 引用，它在生成应用程序时添加到其中。 -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/petdc.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
